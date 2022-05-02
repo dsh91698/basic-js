@@ -88,7 +88,7 @@ Write your code in `src/carbon-dating.js`.
 
 ---
 
-### **Dream team**
+### **Dream team** 
 
 ![Dream team](https://i0.wp.com/www.comicsbeat.com/wp-content/uploads/2021/05/power-rangers.jpg?fit=1420,945&ssl=1)  
 Imagine you and your friends decide to create a **dream team**. This team should have a cool secret name that contains encrypted information about it. For example, these may be the **first letters** of the names of its members in **upper case** **sorted alphabetically**.
