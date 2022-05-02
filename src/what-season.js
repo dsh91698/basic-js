@@ -15,14 +15,25 @@ function getSeason(dateobj) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
   //console.log(dateobj.getFullYear());
-  if (!dateobj) { return 'Unable to determine the time of year!' }
+  if (!dateobj) { return 'Unable to determine the time of year!' } // OK
 
-  if (isNaN(dateobj)) {  return "Invalid date!" }
-  if (dateobj.getFullYear() < 0) { return "Invalid date!" }
-  if (!(typeof dateobj.getFullYear() === 'number' )) { return "Invalid date!" }
-  if (!(Object.prototype.toString.call(dateobj) === '[object Date]')) { return "Invalid date!" }
-  if (!(dateobj instanceof Date && !isNaN(dateobj))) { return "Invalid date!" }
-  if ( !( dateobj.getFullYear() ) ) { return "Invalid date!" }
+  //if (!(typeof dateobj.getMonth() === 'function')) {  throw new Error("Invalid date!")} // OK
+
+  if (isNaN(dateobj)) {  throw new Error("Invalid date!") }
+  // if (dateobj.getFullYear() < 0) { throw new Error("Invalid date!")}
+  // if (!(typeof dateobj.getFullYear() === 'number' )) { throw new Error("Invalid date!") }
+  // if (!(Object.prototype.toString.call(dateobj) === '[object Date]')) { throw new Error("Invalid date!") }
+  // if (!(dateobj instanceof Date && !isNaN(dateobj))) { throw new Error("Invalid date!") }
+  if (!(dateobj instanceof Date)) { throw new Error("Invalid date!") }
+
+  // if ( !( dateobj.getFullYear() ) ) { throw new Error("Invalid date!") }
+  if (!(typeof dateobj === 'object')) { throw new Error("Invalid date!") } // OK
+  if (!(typeof dateobj.getMonth === 'function')) { throw new Error("Invalid date!") } // OK
+  if (!(typeof dateobj.getFullYear === 'function')) { throw new Error("Invalid date!") } // OK
+  if (dateobj.getDate === 'undefined') { throw new Error("Invalid date!") } // OK
+  if (!(typeof dateobj.getFullYear() === 'number')) { throw new Error("Invalid date!") } // OK
+
+
 
   let season = '';
   let month = dateobj.getMonth();
@@ -35,11 +46,10 @@ function getSeason(dateobj) {
     season = 'summer';
   } else if (month >= 8 && month < 11) { 
     season = 'autumn';
-  } else {
-    season = 'winter';
-  }
+  } 
 
   if (season) { return season }
+
   //return season;
 }
 
